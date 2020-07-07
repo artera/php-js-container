@@ -18,6 +18,7 @@ RUN apk --no-cache add \
     icu-dev \
     aspell \
     aspell-dev \
+    gettext-dev \
     libzip \
     libzip-dev \
     tidyhtml-libs \
@@ -40,6 +41,7 @@ RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS && \
         imap-dev \
         icu-dev \
         aspell-dev \
+        gettext-dev \
         libzip-dev \
         tidyhtml-dev \
         openldap-dev
