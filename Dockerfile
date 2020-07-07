@@ -7,8 +7,8 @@ RUN apk --no-cache add \
     yarn \
     bzip2 \
     bzip2-dev \
-    enchant \
-    enchant-dev \
+    enchant2 \
+    enchant2-dev \
     libpng \
     libpng-dev \
     gmp \
@@ -37,7 +37,7 @@ RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS && \
     apk del --no-network \
         .phpize-deps \
         bzip2-dev \
-        enchant-dev \
+        enchant2-dev \
         libpng-dev \
         gmp-dev \
         imap-dev \
