@@ -26,6 +26,7 @@ RUN apk --no-cache add \
     openldap-dev \
     make \
     python3 \
+    py3-pip \
     mariadb-client \
     postgresql-client
 RUN docker-php-ext-install -j$(nproc) bcmath bz2 calendar \
@@ -51,6 +52,6 @@ RUN /usr/local/bin/composer-setup.sh && \
     composer global require --no-plugins --no-scripts "squizlabs/php_codesniffer=*" && \
     rm -rf /root/.composer/cache
 RUN npm install -g pnpm
-RUN pip3 --no-cache-dir install jinja2 requests
+RUN pip --no-cache-dir install jinja2 requests
 ENV PATH="/root/.composer/vendor/bin:${PATH}"
 CMD sh
