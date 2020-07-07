@@ -7,8 +7,6 @@ RUN apk --no-cache add \
     yarn \
     bzip2 \
     bzip2-dev \
-    enchant2 \
-    enchant2-dev \
     libpng \
     libpng-dev \
     gmp \
@@ -30,14 +28,13 @@ RUN apk --no-cache add \
     mariadb-client \
     postgresql-client
 RUN docker-php-ext-install -j$(nproc) bcmath bz2 calendar \
-    enchant exif gd gettext gmp imap intl ldap opcache \
+    exif gd gettext gmp imap intl ldap opcache \
     pcntl pdo_mysql pspell sockets tidy zip mysqli
 RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS && \
     pecl install pcov uopz && docker-php-ext-enable pcov uopz && \
     apk del --no-network \
         .phpize-deps \
         bzip2-dev \
-        enchant2-dev \
         libpng-dev \
         gmp-dev \
         imap-dev \
