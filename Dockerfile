@@ -49,7 +49,7 @@ RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS && \
 COPY composer-setup.sh /usr/local/bin/composer-setup.sh
 RUN /usr/local/bin/composer-setup.sh && \
     rm -f /usr/local/bin/composer-setup.sh && \
-    composer global require --no-plugins --no-scripts "squizlabs/php_codesniffer=*" && \
+    composer global require --no-interaction --no-plugins --no-scripts "squizlabs/php_codesniffer=*" && \
     rm -rf /root/.composer/cache
 RUN npm install -g pnpm
 RUN pip --no-cache-dir install jinja2 requests
