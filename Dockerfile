@@ -1,4 +1,4 @@
-FROM php:7.4-alpine
+FROM php:8.0.0RC5-cli-alpine
 RUN apk --no-cache add \
     git \
     jq \
@@ -33,7 +33,7 @@ RUN docker-php-ext-install -j$(nproc) bcmath bz2 calendar \
     exif gd gettext gmp imap intl ldap opcache \
     pcntl pdo_mysql pspell sockets tidy zip mysqli
 RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS && \
-    pecl install pcov uopz && docker-php-ext-enable pcov uopz && \
+    pecl install pcov && docker-php-ext-enable pcov && \
     apk del --no-network \
         .phpize-deps \
         bzip2-dev \
