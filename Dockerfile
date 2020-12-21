@@ -56,6 +56,7 @@ RUN /usr/local/bin/composer-setup.sh && \
     composer global require --no-interaction --no-plugins --no-scripts "squizlabs/php_codesniffer=*" && \
     rm -rf /root/.composer/cache
 RUN npm install -g pnpm
+RUN sed 's/lockFilename, { realpath: false }/lockFilename, { realpath: false, stale: 300000 }/' -i /usr/share/node_modules/yarn/lib/cli.js
 RUN pip --no-cache-dir install jinja2 requests
 ENV PATH="/root/.composer/vendor/bin:${PATH}"
 CMD sh
