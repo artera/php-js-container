@@ -36,7 +36,7 @@ RUN docker-php-ext-install -j$(nproc) bcmath bz2 calendar \
     exif ffi gd gettext gmp imap intl ldap opcache \
     pcntl pdo_mysql pspell sockets tidy zip mysqli
 RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS && \
-    pecl install pcov && docker-php-ext-enable pcov && \
+    pecl install apcu pcov && docker-php-ext-enable apcu pcov && \
     apk del --no-network \
         .phpize-deps \
         bzip2-dev \
